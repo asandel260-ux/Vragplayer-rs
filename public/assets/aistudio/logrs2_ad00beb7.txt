@@ -1,0 +1,142 @@
+error: linking with `/usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/clang` failed: exit status: 1
+  |
+  = note:  "/usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/clang" "<150 object files omitted>" "-Wl,--as-needed" "-Wl,-Bstatic" "/home/runner/work/Vragplayer-rs/Vragplayer-rs/vragplayer-rs/target/aarch64-linux-android/release/build/vragplayer_rs/1f923cdb104a544a/out/rustcCgajZI/liboboe_sys-9120907b673a1d8d.rlib" "<sysroot>/lib/rustlib/aarch64-linux-android/lib/libcompiler_builtins-*.rlib" "-Wl,-Bdynamic" "-llog" "-lc++_static" "-llog" "-lOpenSLES" "-ldl" "-landroid" "-ldl" "-llog" "-lunwind" "-ldl" "-lm" "-lc" "-L" "/home/runner/work/Vragplayer-rs/Vragplayer-rs/vragplayer-rs/target/aarch64-linux-android/release/build/vragplayer_rs/1f923cdb104a544a/out/rustcCgajZI/raw-dylibs" "-Wl,--eh-frame-hdr" "-Wl,-z,noexecstack" "-L" "/home/runner/work/Vragplayer-rs/Vragplayer-rs/vragplayer-rs/target/cargo-apk-temp-extra-link-libraries" "-L" "/home/runner/work/Vragplayer-rs/Vragplayer-rs/vragplayer-rs/target/aarch64-linux-android/release/build/oboe-sys/f357ebffdb215408/out/library" "-o" "/home/runner/work/Vragplayer-rs/Vragplayer-rs/vragplayer-rs/target/aarch64-linux-android/release/build/vragplayer_rs/1f923cdb104a544a/out/vragplayer" "-Wl,--gc-sections" "-pie" "-Wl,-z,relro,-z,now" "-Wl,-O1" "-Wl,--strip-all" "-nodefaultlibs" "--target=aarch64-linux-android26"
+  = note: some arguments are omitted. use `--verbose` to show all linker arguments
+  = note: ld.lld: error: undefined symbol: __cxa_guard_acquire
+          >>> referenced by EngineOpenSLES.cpp
+          >>>               f452c06b5a62bf65-EngineOpenSLES.o:(oboe::EngineOpenSLES::getInstance()) in archive /home/runner/work/Vragplayer-rs/Vragplayer-rs/vragplayer-rs/target/aarch64-linux-android/release/build/vragplayer_rs/1f923cdb104a544a/out/rustcCgajZI/liboboe_sys-9120907b673a1d8d.rlib
+          >>> referenced by thread.cpp
+          >>>               thread.cpp.o:(std::__ndk1::__thread_local_data()) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> referenced by system_error.cpp
+          >>>               system_error.cpp.o:(std::__ndk1::__system_error_category::default_error_condition(int) const) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> referenced 11 more times
+          
+          ld.lld: error: undefined symbol: __cxa_guard_release
+          >>> referenced by EngineOpenSLES.cpp
+          >>>               f452c06b5a62bf65-EngineOpenSLES.o:(oboe::EngineOpenSLES::getInstance()) in archive /home/runner/work/Vragplayer-rs/Vragplayer-rs/vragplayer-rs/target/aarch64-linux-android/release/build/vragplayer_rs/1f923cdb104a544a/out/rustcCgajZI/liboboe_sys-9120907b673a1d8d.rlib
+          >>> referenced by thread.cpp
+          >>>               thread.cpp.o:(std::__ndk1::__thread_local_data()) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> referenced by system_error.cpp
+          >>>               system_error.cpp.o:(std::__ndk1::__system_error_category::default_error_condition(int) const) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> referenced 10 more times
+          
+          ld.lld: error: undefined symbol: std::terminate()
+          >>> referenced by thread.cpp
+          >>>               thread.cpp.o:(std::__ndk1::thread::~thread()) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> referenced by chrono.cpp
+          >>>               chrono.cpp.o:(__clang_call_terminate) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          
+          ld.lld: error: undefined symbol: __cxa_guard_abort
+          >>> referenced by thread.cpp
+          >>>               thread.cpp.o:(std::__ndk1::__thread_local_data()) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          
+          ld.lld: error: undefined symbol: operator delete(void*)
+          >>> referenced by thread.cpp
+          >>>               thread.cpp.o:(std::__ndk1::__thread_struct_imp::~__thread_struct_imp()) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> referenced by thread.cpp
+          >>>               thread.cpp.o:(std::__ndk1::__thread_struct_imp::~__thread_struct_imp()) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> referenced by thread.cpp
+          >>>               thread.cpp.o:(std::__ndk1::__thread_struct::~__thread_struct()) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> referenced 150 more times
+          
+          ld.lld: error: undefined symbol: operator new(unsigned long)
+          >>> referenced by thread.cpp
+          >>>               thread.cpp.o:(std::__ndk1::__thread_struct::__thread_struct()) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> referenced by system_error.cpp
+          >>>               system_error.cpp.o:(std::__ndk1::__do_message::message(int) const) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> referenced by system_error.cpp
+          >>>               system_error.cpp.o:(std::__ndk1::__generic_error_category::message(int) const) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> referenced 50 more times
+          
+          ld.lld: error: undefined symbol: vtable for __cxxabiv1::__class_type_info
+          >>> referenced by error_category.cpp
+          >>>               error_category.cpp.o:(typeinfo for std::__ndk1::error_category) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> the vtable symbol may be undefined because the class is missing its key function (see https://lld.llvm.org/missingkeyfunction)
+          
+          ld.lld: error: undefined symbol: std::runtime_error::~runtime_error()
+          >>> referenced by system_error.cpp
+          >>>               system_error.cpp.o:(std::__ndk1::system_error::~system_error()) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          
+          ld.lld: error: undefined symbol: __cxa_allocate_exception
+          >>> referenced by system_error.cpp
+          >>>               system_error.cpp.o:(std::__ndk1::__throw_system_error[abi:ne180000](std::__ndk1::error_code, char const*)) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> referenced by string.cpp
+          >>>               string.cpp.o:(std::__ndk1::__throw_length_error[abi:ne180000](char const*)) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          
+          ld.lld: error: undefined symbol: __cxa_throw
+          >>> referenced by system_error.cpp
+          >>>               system_error.cpp.o:(std::__ndk1::__throw_system_error[abi:ne180000](std::__ndk1::error_code, char const*)) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> referenced by string.cpp
+          >>>               string.cpp.o:(std::__ndk1::__throw_length_error[abi:ne180000](char const*)) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          
+          ld.lld: error: undefined symbol: __cxa_free_exception
+          >>> referenced by system_error.cpp
+          >>>               system_error.cpp.o:(std::__ndk1::__throw_system_error[abi:ne180000](std::__ndk1::error_code, char const*)) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> referenced by string.cpp
+          >>>               string.cpp.o:(std::__ndk1::__throw_length_error[abi:ne180000](char const*)) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          
+          ld.lld: error: undefined symbol: vtable for std::logic_error
+          >>> referenced by stdexcept.cpp
+          >>>               stdexcept.cpp.o:(std::logic_error::logic_error(char const*)) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> referenced by stdexcept.cpp
+          >>>               stdexcept.cpp.o:(std::logic_error::logic_error(char const*)) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> the vtable symbol may be undefined because the class is missing its key function (see https://lld.llvm.org/missingkeyfunction)
+          
+          ld.lld: error: undefined symbol: std::exception::~exception()
+          >>> referenced by stdexcept.cpp
+          >>>               stdexcept.cpp.o:(std::logic_error::logic_error(char const*)) in archive 
+                    >>> the vtable symbol may be undefined because the class is missing its key function (see https://lld.llvm.org/missingkeyfunction)
+          
+          ld.lld: error: undefined symbol: std::exception::~exception()
+          >>> referenced by stdexcept.cpp
+          >>>               stdexcept.cpp.o:(std::logic_error::logic_error(char const*)) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> referenced by stdexcept.cpp
+          >>>               stdexcept.cpp.o:(std::runtime_error::runtime_error(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&)) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          
+          ld.lld: error: undefined symbol: vtable for std::runtime_error
+          >>> referenced by stdexcept.cpp
+          >>>               stdexcept.cpp.o:(std::runtime_error::runtime_error(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&)) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> referenced by stdexcept.cpp
+          >>>               stdexcept.cpp.o:(std::runtime_error::runtime_error(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char>> const&)) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> the vtable symbol may be undefined because the class is missing its key function (see https://lld.llvm.org/missingkeyfunction)
+          
+          ld.lld: error: undefined symbol: std::runtime_error::what() const
+          >>> referenced by system_error.cpp
+          >>>               system_error.cpp.o:(vtable for std::__ndk1::system_error) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          
+          ld.lld: error: undefined symbol: vtable for __cxxabiv1::__si_class_type_info
+          >>> referenced by system_error.cpp
+          >>>               system_error.cpp.o:(typeinfo for std::__ndk1::system_error) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> referenced by system_error.cpp
+          >>>               system_error.cpp.o:(typeinfo for std::__ndk1::__do_message) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> referenced by system_error.cpp
+          >>>               system_error.cpp.o:(typeinfo for std::__ndk1::__generic_error_category) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> referenced 1 more times
+          >>> the vtable symbol may be undefined because the class is missing its key function (see https://lld.llvm.org/missingkeyfunction)
+          
+          ld.lld: error: undefined symbol: typeinfo for std::runtime_error
+          >>> referenced by system_error.cpp
+          >>>               system_error.cpp.o:(typeinfo for std::__ndk1::system_error) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          
+          ld.lld: error: undefined symbol: __cxa_begin_catch
+          >>> referenced by chrono.cpp
+          >>>               chrono.cpp.o:(__clang_call_terminate) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          
+          ld.lld: error: undefined symbol: typeinfo for std::length_error
+          >>> referenced by string.cpp
+          >>>               string.cpp.o:(std::__ndk1::__throw_length_error[abi:ne180000](char const*)) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          >>> referenced by string.cpp
+          >>>               string.cpp.o:(std::__ndk1::__throw_length_error[abi:ne180000](char const*)) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          
+          ld.lld: error: undefined symbol: __gxx_personality_v0
+          >>> referenced by chrono.cpp
+          >>>               chrono.cpp.o:(DW.ref.__gxx_personality_v0) in archive /usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/../sysroot/usr/lib/aarch64-linux-android/libc++_static.a
+          
+          ld.lld: error: too many errors emitted, stopping now (use --error-limit=0 to see all errors)
+          clang: error: linker command failed with exit code 1 (use -v to see invocation)
+          
+
+error: could not compile `vragplayer_rs` (bin "vragplayer") due to 1 previous error
+Error: Command `AR_aarch64-linux-android=/usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-ar CARGO_ENCODED_RUSTFLAGS=-Clink-arg=--target=aarch64-linux-android26\u{1f}-L\u{1f}/home/runner/work/Vragplayer-rs/Vragplayer-rs/vragplayer-rs/target/cargo-apk-temp-extra-link-libraries CARGO_TARGET_AARCH64_LINUX_ANDROID_AR=/usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-ar CARGO_TARGET_AARCH64_LINUX_ANDROID_LINKER=/usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/clang CC_aarch64-linux-android=/usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/clang CFLAGS_aarch64-linux-android=--target=aarch64-linux-android26 CXXFLAGS_aarch64-linux-android=--target=aarch64-linux-android26 CXX_aarch64-linux-android=/usr/local/lib/android/sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ cargo build --target aarch64-linux-android --release` had a non-zero exit code.
+Error: Process completed with exit code 1.

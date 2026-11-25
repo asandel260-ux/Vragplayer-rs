@@ -112,7 +112,7 @@ jobs:
 
       - name: Build Pure-Rust Android APK
         working-directory: vragplayer-rs
-        run: cargo apk build --release
+        run: cargo apk build --release --lib
 
       - name: Upload Pure-Rust Android APK
         uses: actions/upload-artifact@v4
