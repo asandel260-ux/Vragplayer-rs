@@ -412,7 +412,7 @@ fn transport_btn(
     let stroke = if primary {
         Stroke::NONE
     } else {
-        Stroke::new(1.0, if active { palette.accent } else { palette.border })
+        Stroke::new(1.0_f32, if active { palette.accent } else { palette.border })
     };
     ui.add(
         egui::Button::new(

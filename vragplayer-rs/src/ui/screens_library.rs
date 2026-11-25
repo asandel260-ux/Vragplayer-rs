@@ -58,7 +58,7 @@ pub fn render_library_screen(
                                 .color(palette.text_primary),
                         )
                         .fill(palette.surface_elevated)
-                        .stroke(Stroke::new(1.0, palette.border))
+                        .stroke(Stroke::new(1.0_f32, palette.border))
                         .corner_radius(CornerRadius::same(12))
                         .min_size(egui::vec2(72.0, 36.0)),
                     )
@@ -611,7 +611,7 @@ pub fn render_queue_screen(
                 egui::Frame::new()
                     .fill(fill)
                     .stroke(Stroke::new(
-                        1.0,
+                        1.0_f32,
                         if is_cur { palette.accent } else { palette.border },
                     ))
                     .corner_radius(CornerRadius::same(14))

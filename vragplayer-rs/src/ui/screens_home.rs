@@ -41,7 +41,7 @@ pub fn render_home_screen(
                                 .color(palette.text_primary),
                         )
                         .fill(palette.surface_elevated)
-                        .stroke(Stroke::new(1.0, palette.border))
+                        .stroke(Stroke::new(1.0_f32, palette.border))
                         .corner_radius(CornerRadius::same(14))
                         .min_size(egui::vec2(84.0, 38.0)),
                     )
@@ -67,7 +67,7 @@ pub fn render_home_screen(
                         } else {
                             palette.surface_elevated
                         })
-                        .stroke(Stroke::new(1.0, palette.border))
+                        .stroke(Stroke::new(1.0_f32, palette.border))
                         .corner_radius(CornerRadius::same(14))
                         .min_size(egui::vec2(52.0, 38.0)),
                     )
@@ -469,7 +469,7 @@ fn quick_tile(ui: &mut Ui, title: &str, subtitle: &str, palette: &StudioPalette)
     painter.rect_stroke(
         rect,
         CornerRadius::same(16),
-        Stroke::new(1.0, palette.border),
+        Stroke::new(1.0_f32, palette.border),
         egui::StrokeKind::Inside,
     );
 

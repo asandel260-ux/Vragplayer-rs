@@ -115,30 +115,30 @@ pub fn apply_studio_visuals(ctx: &egui::Context, palette: &StudioPalette) {
 
     visuals.panel_fill = palette.bg;
     visuals.window_fill = palette.surface_elevated;
-    visuals.window_stroke = Stroke::new(1.0, palette.border);
+    visuals.window_stroke = Stroke::new(1.0_f32, palette.border);
     visuals.window_corner_radius = CornerRadius::same(18);
     visuals.extreme_bg_color = palette.bg;
     visuals.faint_bg_color = palette.surface;
     visuals.selection.bg_fill = palette.accent;
-    visuals.selection.stroke = Stroke::new(1.0, palette.on_accent);
+    visuals.selection.stroke = Stroke::new(1.0_f32, palette.on_accent);
 
     visuals.widgets.noninteractive.bg_fill = palette.surface;
-    visuals.widgets.noninteractive.fg_stroke = Stroke::new(1.0, palette.text_primary);
+    visuals.widgets.noninteractive.fg_stroke = Stroke::new(1.0_f32, palette.text_primary);
     visuals.widgets.noninteractive.corner_radius = CornerRadius::same(10);
 
     visuals.widgets.inactive.bg_fill = palette.surface_elevated;
     visuals.widgets.inactive.weak_bg_fill = palette.surface_elevated;
-    visuals.widgets.inactive.fg_stroke = Stroke::new(1.0, palette.text_primary);
+    visuals.widgets.inactive.fg_stroke = Stroke::new(1.0_f32, palette.text_primary);
     visuals.widgets.inactive.corner_radius = CornerRadius::same(10);
 
     visuals.widgets.hovered.bg_fill = palette.accent_soft;
     visuals.widgets.hovered.weak_bg_fill = palette.accent_soft;
-    visuals.widgets.hovered.fg_stroke = Stroke::new(1.0, palette.text_primary);
+    visuals.widgets.hovered.fg_stroke = Stroke::new(1.0_f32, palette.text_primary);
     visuals.widgets.hovered.corner_radius = CornerRadius::same(10);
 
     visuals.widgets.active.bg_fill = palette.accent;
     visuals.widgets.active.weak_bg_fill = palette.accent;
-    visuals.widgets.active.fg_stroke = Stroke::new(1.0, palette.on_accent);
+    visuals.widgets.active.fg_stroke = Stroke::new(1.0_f32, palette.on_accent);
     visuals.widgets.active.corner_radius = CornerRadius::same(10);
 
     ctx.set_visuals(visuals);
@@ -147,7 +147,7 @@ pub fn apply_studio_visuals(ctx: &egui::Context, palette: &StudioPalette) {
 pub fn card_frame(palette: &StudioPalette, radius: u8, pad_x: i8, pad_y: i8) -> Frame {
     Frame::new()
         .fill(palette.surface)
-        .stroke(Stroke::new(1.0, palette.border))
+        .stroke(Stroke::new(1.0_f32, palette.border))
         .corner_radius(CornerRadius::same(radius))
         .inner_margin(Margin::symmetric(pad_x, pad_y))
 }
@@ -155,7 +155,7 @@ pub fn card_frame(palette: &StudioPalette, radius: u8, pad_x: i8, pad_y: i8) -> 
 pub fn elevated_frame(palette: &StudioPalette, radius: u8, pad_x: i8, pad_y: i8) -> Frame {
     Frame::new()
         .fill(palette.surface_elevated)
-        .stroke(Stroke::new(1.0, palette.border))
+        .stroke(Stroke::new(1.0_f32, palette.border))
         .corner_radius(CornerRadius::same(radius))
         .inner_margin(Margin::symmetric(pad_x, pad_y))
 }
@@ -174,7 +174,7 @@ pub fn pill_button(ui: &mut Ui, label: &str, selected: bool, palette: &StudioPal
     let stroke = if selected {
         Stroke::NONE
     } else {
-        Stroke::new(1.0, palette.border)
+        Stroke::new(1.0_f32, palette.border)
     };
     ui.add(
         egui::Button::new(RichText::new(label).size(13.0).strong().color(text_color))
@@ -209,7 +209,7 @@ pub fn secondary_action_button(ui: &mut Ui, label: &str, palette: &StudioPalette
                 .color(palette.text_primary),
         )
         .fill(palette.surface_elevated)
-        .stroke(Stroke::new(1.0, palette.border))
+        .stroke(Stroke::new(1.0_f32, palette.border))
         .corner_radius(CornerRadius::same(14))
         .min_size(egui::vec2(0.0, 44.0)),
     )
@@ -291,12 +291,12 @@ pub fn paint_track_artwork(
     painter.circle_stroke(
         center,
         size * 0.34,
-        Stroke::new(1.0, Color32::from_rgba_unmultiplied(255, 255, 255, 36)),
+        Stroke::new(1.0_f32, Color32::from_rgba_unmultiplied(255, 255, 255, 36)),
     );
     painter.circle_stroke(
         center,
         size * 0.20,
-        Stroke::new(1.0, Color32::from_rgba_unmultiplied(255, 255, 255, 26)),
+        Stroke::new(1.0_f32, Color32::from_rgba_unmultiplied(255, 255, 255, 26)),
     );
 
     // Animated pulse ring when actively playing
@@ -307,7 +307,7 @@ pub fn paint_track_artwork(
             center,
             size * (0.24 + pulse * 0.06),
             Stroke::new(
-                1.5,
+                1.5_f32,
                 Color32::from_rgba_unmultiplied(
                     palette.accent.r(),
                     palette.accent.g(),
@@ -335,7 +335,7 @@ pub fn paint_track_artwork(
     painter.rect_stroke(
         rect,
         CornerRadius::same(radius),
-        Stroke::new(1.0, Color32::from_rgba_unmultiplied(255, 255, 255, 34)),
+        Stroke::new(1.0_f32, Color32::from_rgba_unmultiplied(255, 255, 255, 34)),
         StrokeKind::Inside,
     );
 
@@ -373,9 +373,9 @@ pub fn render_song_row(
         palette.surface
     };
     let row_stroke = if is_current {
-        Stroke::new(1.0, palette.accent)
+        Stroke::new(1.0_f32, palette.accent)
     } else {
-        Stroke::new(1.0, palette.border)
+        Stroke::new(1.0_f32, palette.border)
     };
 
     Frame::new()
@@ -531,7 +531,7 @@ pub fn render_screen_top_bar(
                             .color(palette.text_primary),
                     )
                     .fill(palette.surface_elevated)
-                    .stroke(Stroke::new(1.0, palette.border))
+                    .stroke(Stroke::new(1.0_f32, palette.border))
                     .corner_radius(CornerRadius::same(12))
                     .min_size(egui::vec2(72.0, 38.0)),
                 )
@@ -592,7 +592,7 @@ pub fn render_seek_bar(
     painter.circle_stroke(
         Pos2::new(active_x, track_y),
         thumb_radius,
-        Stroke::new(2.0, palette.on_accent),
+        Stroke::new(2.0_f32, palette.on_accent),
     );
 
     if (response.clicked() || response.dragged()) && duration_ms > 0 {

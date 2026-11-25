@@ -77,7 +77,7 @@ impl eframe::App for VragApp {
                 .frame(
                     Frame::new()
                         .fill(palette.surface)
-                        .stroke(Stroke::new(1.0, palette.border))
+                        .stroke(Stroke::new(1.0_f32, palette.border))
                         .inner_margin(Margin::symmetric(10, 14)),
                 )
                 .show(ctx, |ui| {
@@ -271,7 +271,8 @@ impl eframe::App for VragApp {
                 .collapsible(false)
                 .resizable(false)
                 .anchor(egui::Align2::CENTER_CENTER, Vec2::ZERO)
-                .fixed_width(310.0)
+                .default_width(310.0)
+                .max_width(310.0)
                 .show(ctx, |ui| {
                     ui.label(
                         RichText::new(&target_song.title)
@@ -356,7 +357,8 @@ impl eframe::App for VragApp {
                 .collapsible(false)
                 .resizable(false)
                 .anchor(egui::Align2::CENTER_CENTER, Vec2::ZERO)
-                .fixed_width(320.0)
+                .default_width(320.0)
+                .max_width(320.0)
                 .show(ctx, |ui| {
                     info_row(ui, "Title", &info_song.title, &palette);
                     info_row(ui, "Artist", &info_song.artist, &palette);

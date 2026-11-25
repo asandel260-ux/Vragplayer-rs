@@ -44,7 +44,8 @@ pub fn render_equalizer_screen(
                 });
                 ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
                     let mut eq_on = state.persisted.settings.eq_enabled;
-                    if ui.checkbox(&mut eq_on, if eq_on { "ON" } else { "OFF" }).changed() {
+                    let eq_label = if eq_on { "ON" } else { "OFF" };
+                    if ui.checkbox(&mut eq_on, eq_label).changed() {
                         state.set_eq_enabled(eq_on);
                     }
                 });
@@ -65,7 +66,7 @@ pub fn render_equalizer_screen(
             let mid_y = rect.center().y;
             painter.line_segment(
                 [Pos2::new(rect.left() + 8.0, mid_y), Pos2::new(rect.right() - 8.0, mid_y)],
-                Stroke::new(1.0, palette.border),
+                Stroke::new(1.0_f32, palette.border),
             );
 
             let bands = state.persisted.settings.eq_bands;
@@ -84,11 +85,11 @@ pub fn render_equalizer_screen(
                 points.push(Pos2::new(x, y));
             }
             for seg in points.windows(2) {
-                painter.line_segment([seg[0], seg[1]], Stroke::new(2.5, curve_color));
+                painter.line_segment([seg[0], seg[1]], Stroke::new(2.5_f32, curve_color));
             }
             for p in points {
                 painter.circle_filled(p, 5.0, curve_color);
-                painter.circle_stroke(p, 5.0, Stroke::new(1.5, palette.bg));
+                painter.circle_stroke(p, 5.0, Stroke::new(1.5_f32, palette.bg));
             }
         });
 
@@ -526,7 +527,7 @@ pub fn render_settings_screen(
                         painter.circle_stroke(
                             rect.center(),
                             17.0,
-                            Stroke::new(2.0, palette.text_primary),
+                            Stroke::new(2.0_f32, palette.text_primary),
                         );
                     }
                     if resp.on_hover_text(name).clicked() {
@@ -652,7 +653,7 @@ fn stat_card(ui: &mut Ui, label: &str, value: &str, palette: &StudioPalette) {
     painter.rect_stroke(
         rect,
         CornerRadius::same(16),
-        Stroke::new(1.0, palette.border),
+        Stroke::new(1.0_f32, palette.border),
         StrokeKind::Inside,
     );
     painter.text(
