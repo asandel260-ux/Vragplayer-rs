@@ -110,6 +110,33 @@ jobs:
       - name: Install cargo-apk
         run: cargo install cargo-apk --locked
 
+      - name: Prepare APK signing keystore
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+        run: |
+          KEYSTORE_PATH="${{ runner.temp }}/vragplayer-release.keystore"
+          if [ -n "$ANDROID_KEYSTORE_BASE64" ] && [ -n "$ANDROID_KEYSTORE_PASSWORD" ]; then
+            echo "$ANDROID_KEYSTORE_BASE64" | base64 --decode > "$KEYSTORE_PATH"
+            KEYSTORE_PASS="$ANDROID_KEYSTORE_PASSWORD"
+            echo "Using release keystore from GitHub Secrets"
+          else
+            KEYSTORE_PASS=$(openssl rand -hex 16)
+            echo "::add-mask::$KEYSTORE_PASS"
+            keytool -genkeypair -noprompt \
+              -keystore "$KEYSTORE_PATH" \
+              -storepass "$KEYSTORE_PASS" \
+              -keypass "$KEYSTORE_PASS" \
+              -alias vragplayer \
+              -keyalg RSA \
+              -keysize 2048 \
+              -validity 10000 \
+              -dname "CN=VragPlayer, OU=Studio, O=VragPlayer, L=Local, S=Local, C=US"
+            echo "Generated ephemeral CI release keystore for APK signing"
+          fi
+          echo "CARGO_APK_RELEASE_KEYSTORE=$KEYSTORE_PATH" >> "$GITHUB_ENV"
+          echo "CARGO_APK_RELEASE_KEYSTORE_PASSWORD=$KEYSTORE_PASS" >> "$GITHUB_ENV"
+
       - name: Build Pure-Rust Android APK
         working-directory: vragplayer-rs
         run: cargo apk build --release --lib
